@@ -1,5 +1,6 @@
 <template>
   <div>
+      <h2>先点菜吧</h2>
       <nav-header></nav-header>
       <router-view></router-view>
       <nav-footer></nav-footer>
@@ -7,15 +8,18 @@
 </template>
 
 <script>
-import NavHeader from '../components/NavHeader.vue'
+import NavHeader from 'components/NavHeader.vue'
+import NavFooter from 'components/NavFooter.vue'
 export default {
     name:"Home",
     components: { 
-        NavHeader 
+        NavHeader,
+        NavFooter
     },
 
 }
-</script>
+
+        NavFooter</script>
 
 <style>
 
