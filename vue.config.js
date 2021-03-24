@@ -9,7 +9,7 @@ module.exports = {
         port:8080,
         proxy:{
             '/api':{
-                target:"https://www.imooc.com", // 需要代理的位置
+                target:"http://mall-pre.springboot.cn", // 需要代理的位置
                 changeOrigin:true,// 是否要将主机头的源点更改为目标url节点
                 pathRewrite:{
                     '/api':'',

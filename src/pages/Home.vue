@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h2>先点菜吧</h2>
       <nav-header></nav-header>
       <router-view></router-view>
       <nav-footer></nav-footer>
@@ -19,7 +18,7 @@ export default {
 
 }
 
-        NavFooter</script>
+</script>
 
 <style>
 

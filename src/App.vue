@@ -5,9 +5,7 @@
 </template>
 
 <script>
-import storage from 'storage/index'
-import jsonp from 'jsonp'
-import axios from 'axios'
+
 export default {
   name: 'App',
   data(){
@@ -18,21 +16,31 @@ export default {
   components: {
   },
   mounted(){ 
-    // 本地加载请求 json文件的形式
-    // this.axios.get("/mock/user/login.json").then(res => {
-    //   this.res = res;
-    //   console.log(res);
-    // })
-
-    //通过fast-mock平台调用mock
-    this.axios.get("/user").then(res => {
-      this.res = res;
+    this.axios.get("/user").then((res) =>{
       console.log(res);
     })
+    console.log("aa");
+    this.getUser();
+    this.getCartCount();
+  },
+  methods:{
+    getUser(){
+      // this.axios.get("/user").then((res)=>{
+      //   //to-do 保存到vuex里面
+      //   console.log(res);
+      // })
+    },
+    getCartCount(){
+      // this.axio.get("/carts/products/sum").then(() => {
+      //   // to-do 保存到vuex里面
+      // })
+    }
   }
 }
 </script>
 
-<style scoped>
+<style  lang="scss">
 @import './assets/scss/reset.scss';
+@import './assets/scss/config.scss';
+@import './assets/scss/button.scss';
 </style>
