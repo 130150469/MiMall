@@ -61,19 +61,18 @@ export default {
             }).then(res => {
                 this.$cookie.set("userId",res.id,{expires:"1M"}); 
                 //to-do 保存用户名 保存用户信息
+                this.$store.dispatch('saveUserName',username)
                 this.$router.push("/index")
-            }).catch(res =>{
-                console.log(res);
             })
         },
         register(){
-             this.axios.post('/user/register',{
-                username:"wjc",
-                password:"wjc",
-                email:"130150469@qq.com"
-            }).then(res => {
-                console.log(res);
-            })
+            // this.axios.post('/user/register',{
+            //     username:"wjc",
+            //     password:"wjc",
+            //     email:"130150469@qq.com"
+            // }).then(res => {
+            //     console.log(res);
+            // })
         }
     }
 }

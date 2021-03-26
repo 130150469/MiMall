@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import {mapActions} from 'vuex'
 export default {
   name: 'App',
   data(){
@@ -16,24 +16,25 @@ export default {
   components: {
   },
   mounted(){ 
-    this.axios.get("/user").then((res) =>{
-      console.log(res);
-    })
-    console.log("aa");
     this.getUser();
     this.getCartCount();
   },
   methods:{
+    ...mapActions([
+      'saveUserName',
+    ]),
     getUser(){
-      // this.axios.get("/user").then((res)=>{
-      //   //to-do 保存到vuex里面
-      //   console.log(res);
-      // })
+      this.axios.get("/user").then((res = {})=>{
+        //to-do 保存到vuex里面
+        this.saveUserName(res.username);
+        //this.$store.dispatch('saveUserName',res.username)
+      })
     },
     getCartCount(){
-      // this.axio.get("/carts/products/sum").then(() => {
-      //   // to-do 保存到vuex里面
-      // })
+      this.axios.get("/carts/products/sum").then((res = 0) => {
+        // to-do 保存到vuex里面
+        this.$store.dispatch('saveCartCount',res)
+      })
     }
   }
 }

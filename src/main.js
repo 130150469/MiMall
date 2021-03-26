@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import env from './env'
+//import env from './env'
+import store from './store'
 import VueCookie from 'vue-cookie'
 //根据前端的跨域方式做调整 /a/b => /api/a/b
 axios.defaults.baseURL = "/api"
@@ -21,13 +22,14 @@ axios.interceptors.response.use(response => {
         window.location.href = "/#/login";
     }else{
         alert(res.msg);
-        return Promise.reject(res);
     }
+    return Promise.reject(res);
 })
 Vue.config.productionTip = false
 Vue.use(VueAxios,axios)
 Vue.use(VueCookie)
 new Vue({
+    store,
     router,
     render: h => h(App),
   }).$mount('#app')
